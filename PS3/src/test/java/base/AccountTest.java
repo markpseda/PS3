@@ -28,8 +28,30 @@ public class AccountTest {
 
 	@Test
 	public void testAccount() {
-		assertTrue(1==1);
+		int idNumber = 1122;
+		double balance = 20000;
+		double withdraw = 2500;
+		double deposit = 3000;
+		double AnnualInterest = 4.5;
+		Account testAccount = new Account(idNumber, balance);
+		testAccount.setAnnualIntrestRate(AnnualInterest);
+		assertEquals(testAccount.getAnnualIntrestRate(), AnnualInterest,.001);
+		
+		assertEquals(testAccount.getId(), idNumber, 0);
+		
+		double expectedValAfterWithdraw = balance - withdraw;
+		testAccount.withdraw(withdraw);
+		assertEquals(testAccount.getBalance(), expectedValAfterWithdraw, .001);
+		
+		double expectedValAfterDeposit = balance - withdraw + deposit;
+		testAccount.deposit(deposit);
+		assertEquals(testAccount.getBalance(), expectedValAfterDeposit, .001);
+		
+		System.out.println("Balance: $" + testAccount.getBalance());
+		System.out.println("Monthly Interest Rate: " +testAccount.getMonthlyInterestRate());
+		System.out.println("Date Created: " + testAccount.getDateCreated());
 	}
+	
 	/*
 	@Test(expected=InsufficientFundsException.class)
 	public final void testWithdraw() throws InsufficientFundsException {
@@ -37,34 +59,9 @@ public class AccountTest {
 		assertEquals("$400 Expected, actual is $500",(long)c.getBalance(),(long)500.00);
         c.withdraw(900);
 	}
-
-	@Test
-	public final void testDeposit() {
-		int x = 0;
-		
-		while (x < 20) {
-			c.deposit(1000000000);
-		}
-	}
-
-	
+	*/
 	
 
-	@Test
-	public final void testWithdraw() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public final void testGetBalance() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public final void testGetNumber() {
-		fail("Not yet implemented"); // TODO
-	}
-*/
 
 
 }
