@@ -7,6 +7,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import exceptions.InsufficientFundsException;
 
 public class AccountTest {
 
@@ -27,7 +28,7 @@ public class AccountTest {
 	}
 
 	@Test
-	public void testAccount() {
+	public void testAccount() throws InsufficientFundsException {
 		int idNumber = 1122;
 		double balance = 20000;
 		double withdraw = 2500;
@@ -52,14 +53,17 @@ public class AccountTest {
 		System.out.println("Date Created: " + testAccount.getDateCreated());
 	}
 	
-	/*
+	
 	@Test(expected=InsufficientFundsException.class)
 	public final void testWithdraw() throws InsufficientFundsException {
-		c.deposit(500.00);
-		assertEquals("$400 Expected, actual is $500",(long)c.getBalance(),(long)500.00);
-        c.withdraw(900);
+		Account testAccount = new Account();
+		
+		testAccount.setId(5);			//test set id method
+		testAccount.setBalance(500);	//test set balance method
+		
+        testAccount.withdraw(600);
 	}
-	*/
+	
 	
 
 
