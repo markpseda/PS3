@@ -100,7 +100,7 @@ public class Account {
 	}
 
 	/**
-	 * Withdraws a specified amout from an account. If the account does not have
+	 * Withdraws a specified amount from an account. If the account does not have
 	 * enough funds to withdraw, a custom InsufficientFundsException is thrown.
 	 * @param amount amount to withdraw
 	 * @throws InsufficientFundsException Displays amount of money short
